@@ -9,8 +9,9 @@ public class Codifica17204017 implements Codifica {
         String textoCodificado = "";
         for (int i = 0; i < str.length(); i++){
             int posicaoCaractere = alfabeto.indexOf(str.charAt(i));
-            if (posicaoCaractere == -1)  
-                posicaoCaractere = 0; 
+            if (posicaoCaractere == -1){  
+                textoCodificado += str.charAt(i); 
+            }else
             textoCodificado += alfabetoQWERTY.charAt(posicaoCaractere); 
         }
         return textoCodificado;
@@ -21,6 +22,9 @@ public class Codifica17204017 implements Codifica {
         String textoDecodificado = "";
         for (int i = 0; i < str.length(); i++){
             int posicaoCaractere = alfabetoQWERTY.indexOf(str.charAt(i));
+            if (posicaoCaractere == -1){  
+                textoDecodificado += str.charAt(i); 
+            }else
             textoDecodificado += alfabeto.charAt(posicaoCaractere);
         }
         return textoDecodificado;
