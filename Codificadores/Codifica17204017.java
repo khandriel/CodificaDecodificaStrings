@@ -1,25 +1,25 @@
 package Codificadores;
 
 public class Codifica17204017 implements Codifica {
-    private String alfabetoQWERTY = "1234567890:. ŷéQWERTYUIOPASDFGHJKLÇZXCVBNMqwertyuiopasdfghjklçzxcvbnm";
-    private String alfabeto =       "1234567890:. ãúABCDEFGHIJKLMNOPQRSÇTUVWXYZabcdefghijklmnopqrsçtuvwxyz";
-
+    int chave = (int)(Math.random() * (25 - 3 + 1) + 3);
     @Override
     public String codifica(String str) {
+        char[] caracteres = str.toCharArray();
         String textoCodificado = "";
-        for (int i = 0; i < str.length(); i++){
-            int posicaoCaractere = alfabeto.indexOf(str.charAt(i));
-            textoCodificado += alfabetoQWERTY.charAt(posicaoCaractere); 
+            for (char c : caracteres){
+                c += chave;
+               textoCodificado+= c;  
         }
         return textoCodificado;
     }
 
     @Override
     public String decodifica(String str) {
+        char[] caracteres = str.toCharArray();
         String textoDecodificado = "";
-        for (int i = 0; i < str.length(); i++){
-            int posicaoCaractere = alfabetoQWERTY.indexOf(str.charAt(i));
-            textoDecodificado += alfabeto.charAt(posicaoCaractere);
+        for (char c : caracteres){
+            c -= chave;
+            textoDecodificado += c;
         }
         return textoDecodificado;
     }
