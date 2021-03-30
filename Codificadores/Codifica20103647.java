@@ -6,6 +6,7 @@ public class Codifica20103647 implements Codifica {
     private String data = "03292021";
     private String [] dataSeparada = data.split("");
     private int count;
+    private boolean controle;
 
     @Override
     public String codifica (String str){
@@ -14,15 +15,17 @@ public class Codifica20103647 implements Codifica {
         count = 0;
 
         for(char a : str.toCharArray()){
+            controle = false;
             for(int i = 0; i < alfabetoInvertido.length(); i++){
                 if(a == alfabetoInvertido.charAt(i)){
+                    controle = true;
                     int temp = count % 7;
                     int chave = Integer.parseInt(dataSeparada[temp]);
                     frase += alfabetoInvertido.charAt(i+chave);
                     count++;
                 }
             }
-            if(!Character.isLetterOrDigit(a)) frase += a;
+            if(controle == false) frase += a;
         }
 
 
@@ -34,15 +37,17 @@ public class Codifica20103647 implements Codifica {
         String frase = "";
         count = 0;
         for(char a : str.toCharArray()){
+            controle = false;
             for(int i = 0; i < alfabetoInvertido.length(); i++){
                 if(alfabetoInvertido.charAt(i) == a){
+                    controle = true;
                     int temp = count % 7;
                     int chave = Integer.parseInt(dataSeparada[temp]);
                     frase += alfabetoInvertido.charAt(i - chave);
                     count ++;
                 }
             }
-           if(! Character.isLetterOrDigit(a)) frase += a;
+           if(controle == false) frase += a;
         }
 
 
