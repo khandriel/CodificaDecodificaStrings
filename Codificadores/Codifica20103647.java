@@ -21,7 +21,7 @@ public class Codifica20103647 implements Codifica {
                     controle = true;
                     int temp = count % 7;
                     int chave = Integer.parseInt(dataSeparada[temp]);
-                    frase += alfabetoInvertido.charAt(i+chave);
+                    frase += alfabetoInvertido.charAt((i + chave) % alfabetoInvertido.length());
                     count++;
                 }
             }
@@ -43,7 +43,7 @@ public class Codifica20103647 implements Codifica {
                     controle = true;
                     int temp = count % 7;
                     int chave = Integer.parseInt(dataSeparada[temp]);
-                    frase += alfabetoInvertido.charAt(i - chave);
+                    frase += alfabetoInvertido.charAt((i - chave) % alfabetoInvertido.length());
                     count ++;
                 }
             }
