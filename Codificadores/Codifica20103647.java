@@ -43,8 +43,8 @@ public class Codifica20103647 implements Codifica {
                     controle = true;
                     int temp = count % 7;
                     int chave = Integer.parseInt(dataSeparada[temp]);
-                    frase += alfabetoInvertido.charAt((i - chave) % alfabetoInvertido.length());
-                    count ++;
+                    //frase += alfabetoInvertido.charAt((i - chave) % alfabetoInvertido.length());
+                    frase += alfabetoInvertido.charAt((alfabetoInvertido.length() + i - chave) % alfabetoInvertido.length());                    count ++;
                 }
             }
            if(controle == false) frase += a;
